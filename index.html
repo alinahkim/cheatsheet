@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Alina's Cheatsheet</title>
+  <link href='./resources/css/styles.css' rel='stylesheet'>
+</head>
+
+<body>
+  <header>
+    <h1 class='header'>CSS Selectors Cheatsheet</h1>
+  </header>
+
+  <table>
+    <thead>
+      <tr> <!-- Row 1 -->
+        <th scope='col' class='column-title'>Selector</th>
+        <th scope='col' class='column-title'>Syntax</th>
+        <th scope='col' class='column-title'>Description</th>
+        <th scope='col' class='column-title'>Example</th>
+        <th scope='col' class='column-title'>Example Description</th>
+        <th scope='col' class='column-title'>Specificity</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr> <!-- Row 2 -->
+        <td>Type Selector</td>
+        <td class='code'>(element) {<br>  property: value;<br>}</td>
+        <td>Selects an element in HTML</td>
+        <td class='code'>p {<br>  color: green;<br>}</td>
+        <td>The element type is <span class='code'>&lt;p&gt;</span> (paragraph). The <span class='code'>&lt;p&gt;</span> elements would become green (foreground).</td>
+        <td>Lowest specificity.</td>
+      </tr>
+      <tr> <!-- Row 3 -->
+        <td>Universal Selector</td>
+        <td class='code'>* {<br>  property: value;<br>}</td>
+        <td>Selects elements of any type/all elements on a page. Or, it can select all children of a parent element.</td>
+        <td class='code'>* {<br>  font-family: Verdana;<br>}</td>
+        <td>Every text element on the page will have its font changed to Verdana.</td>
+        <td>No specificity.</td>
+      </tr>
+      <tr> <!-- Row 4 -->
+        <td>Class Attribute Selector</td>
+        <td class='code'>.(class) {<br>  property: value;<br>}</td>
+        <td>Targets elements based on its attribute in HTML. In HTML, the attribute will be <span class='code'>class='value'</span> and the value is specified after the period(.) in this CSS selector. An HTML element's class can have multiple values and thus we can mix and match CSS classes.</td>
+        <td class='code'>.brand {<br>  font-weight: bold;<br>}</td>
+        <td>Elements with a class of 'brand' will be bolded.</td>
+        <td>More specific than Type Selectors.</td>
+      </tr>
+      <tr> <!-- Row 5 -->
+        <td>ID Selector</td>
+        <td class='code'>#(ID) {<br>  property: value;<br>}</td>
+        <td>Targets single elements with specific ID attribute value. If an HTML element needs to be styled uniquely, use this. An element's ID can only have a single value and can only be used once per page, so an ID only styles one element. Use a dash between multiple words in an ID: <span class='code'>id=’large=title’</span></td>
+        <td class='code'>#large-title {<br>  text-transform: uppercase;<br>}</td>
+        <td>The element with the ID of 'large-title' will be in all uppercase letters.</td>
+        <td>More specific than type and class selectors. Overrides the style of these selectors. ID selectors are more specific than any selector using only element type and/or class selectors -- this includes chaining and descendant combinator selectors.</td>
+      </tr>
+      <tr> <!-- Row 6 -->
+        <td>Attribute Selector</td>
+        <td class='code'>[attribute] {<br>  property: value;<br>}<br>or<br>type[attribute*='value'] {<br>  property: value;<br>}</td>
+        <td>(1)Targets HTML elements that already contain attributes. Selects the attribute instead of its value. (2)Targets elements with an attribute and value by adding type and attribute values. This selects an element that has an attribute with any instance of a specified word in its value. Both alleviate the need to add new code/HTML markup. </td>
+        <td class='code'>[href] {<br>  color: magenta;<br>}<br>or<br>img[src*='winter'] {<br>  height: 50px;<br>}</td>
+        <td>(1)All elements with an href attribute will have magenta text. (2) <span class='code'>&lt;img src='/images/seasons/cold/winter.jpg'&gt;</span> is what is in the HTML. The example looks for an <span class='code'>&lt;img&gt;</span> element with an attribute of src that contains the string 'winter.'</td>
+        <td>(1) is more specific than type selectors. (2) is very specific.</td>
+      </tr>
+      <tr> <!-- Row 7 -->
+        <td>Pseudo-class Selector</td>
+        <td class='code'>(element):pseudo-class {<br>  property: value;<br>}</td>
+        <td>Used to change the appearance of certain elements after user interactions. Some pseudo-classes: <!-- MIGHT WANT TO DO LIST HERE -->  <span class='code'>:focus</span>, <span class='code'>:visited</span>, <span class='code'>:disabled</span>, and <span class='code'>:active</span>. A pseudo-class can be attached to any selector.</td>
+        <td class='code'>p:hover {<br>  background-color: lime;<br>}</td>
+        <td>Whenever the mouse hovers over a paragraph element, that paragraph will have a lime-colored background.</td>
+        <td>n/a</td>>
+      </tr>
+      <tr> <!-- Row 8 -->
+        <td>Chaining Selector</td>
+        <td class='code'>(element).class {<br>  property: value;<br>}</td>
+        <td>Targets a specific HTML element that has two or more CSS selectors at the same time by combining multiple selectors.</td>
+        <td class='code'>h1.special {<br>  font-family: 'Times New Roman';<br>}</td>
+        <td><span class='code'>&lt;h1&gt;</span> elements with a class of 'special' will be in Times New Roman font.</td>
+        <td>More specific than type and class selectors.</td>
+      </tr>
+      <tr> <!-- Row 9 -->
+        <td>Descendant Combinator Selector</td>
+        <td class='code'>(selector1: element/class/attribute) (selector2: element/class/attribute) {<br>  property: value;<br>}</td>
+        <td>Selects elements nested within other HTML elements (AKA descendants). Can be nested elements, does not need a class.</td>
+        <td class='code'>.main-list li {<br>  font-style: italic;<br>}</td>
+        <td>In the HTML, li elements are descendents of a ul element with a class of 'main-list'. This selects for all list elements nested within elements with a 'main-list' class.</td>
+        <td>More specific than type and class selectors.</td>
+      </tr>
+    </tbody>
+  </table>
+</body>
+
+</html>
